@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {DatePipe, NgForOf, NgIf} from '@angular/common';
 import {TodoDataService} from '../service/data/todo-data.service';
+import {Router} from '@angular/router';
 
 export class Todo {
   constructor(
@@ -42,7 +43,8 @@ export class ListTodosComponent {
   // }
 
   constructor(
-    private todoService:TodoDataService
+    private todoService:TodoDataService,
+    private router: Router,
   ) { }
 
   deleteTodo(id:number) {
@@ -51,9 +53,14 @@ export class ListTodosComponent {
       response => {
         console.log(response);
         this.message = `Todo ${id} Deleted!`;
+        this.refreshTodos()
       }
     )
-    this.refreshTodos()
+  }
+
+  updateTodo(id:number) {
+    console.log(`Update Todo ${id}`);
+    this.router.navigate(['todos',id])
   }
 
   ngOnInit() {
@@ -68,5 +75,4 @@ export class ListTodosComponent {
       }
     )
   }
-
 }
