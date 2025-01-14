@@ -15,7 +15,7 @@ import {HttpIntercepterBasicAuthService} from './service/http/http-intercepter-b
 export const appConfig: ApplicationConfig = {
 
   providers: [importProvidersFrom(BrowserModule, FormsModule), provideRouter(routes),
-    // { provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true },
     provideHttpClient(withInterceptorsFromDi())]
 
 };

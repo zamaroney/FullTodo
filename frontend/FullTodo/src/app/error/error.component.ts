@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-error',
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './error.component.html',
   styleUrl: './error.component.css'
 })
 export class ErrorComponent {
-  errorMessage = 'Error Occured'
+  errorMessage = 'Unable to retrieve Resources from the server';
+  serverError = false;
 }

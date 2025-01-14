@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs';
+import {API_URL} from '../app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -11,18 +12,6 @@ export class BasicAuthenticationService {
     private http:HttpClient,
   ) { }
 
-  authenticate(username:string, password:string) {
-    // console.log('before ' + this.isUserLoggedIn())
-    if(username === 'zamaroney' && password === 'dummy'){
-      sessionStorage.setItem('authenticatedUser', username);
-      // console.log('after ' + this.isUserLoggedIn())
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-
   executeAuthenticationService(username:string, password:string) {
     let basicAuthHeaderString:string =  'Basic ' + window.btoa(username + ':' + password);
 
@@ -31,11 +20,12 @@ export class BasicAuthenticationService {
     })
 
     return this.http.get<AuthenticationBean>(
-      `http://localhost:8080/basicauth`,
+      `${API_URL}/basicauth`,
       {headers}).pipe(
         map(
           data => {
-            sessionStorage.setItem('authenticatedUser', username);
+            sessionStorage.setItem(TOKEN, username);
+            sessionStorage.setItem(AUTHERIZED_USER, basicAuthHeaderString);
             return data;
           }
         )
@@ -43,15 +33,30 @@ export class BasicAuthenticationService {
     //console.log("Execute Hello World Bean Service")
   }
 
+  getAuthenticateduser() {
+    return sessionStorage.getItem(AUTHERIZED_USER);
+  }
+
+  getAuthenticatedToken() {
+    if (this.getAuthenticateduser()) {
+      return sessionStorage.getItem(TOKEN);
+    }
+    return null;
+  }
+
   isUserLoggedIn() {
-    const user = sessionStorage.getItem('authenticatedUser');
+    const user = sessionStorage.getItem(AUTHERIZED_USER);
     return !(user === null);
   }
 
   logout() {
-    sessionStorage.removeItem('authenticatedUser');
+    sessionStorage.removeItem(AUTHERIZED_USER);
+    sessionStorage.removeItem(TOKEN);
   }
 }
+
+export const TOKEN = 'token'
+export const AUTHERIZED_USER = 'authenticatedUser'
 
 export class AuthenticationBean {
   constructor(public message: string) { }
