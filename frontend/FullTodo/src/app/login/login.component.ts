@@ -21,7 +21,7 @@ export class LoginComponent {
               private hardcodedAuthenticationService: HardcodedAuthenticationService) { }
 
   username = 'zamaroney'
-  password = ''
+  password = 'dummy'
   errorMessage = 'Invalid username or password'
   invalidLogin = false;
 

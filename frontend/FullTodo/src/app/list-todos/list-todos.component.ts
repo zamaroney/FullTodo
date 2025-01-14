@@ -75,4 +75,8 @@ export class ListTodosComponent {
       }
     )
   }
+
+  addTodo() {
+    this.router.navigate(['todos',-1])
+  }
 }
