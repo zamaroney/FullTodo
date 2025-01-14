@@ -1,4 +1,4 @@
-package com.fullTodo.rest.webservices.restful_web_webservices.basic.auth;
+package com.fullTodo.rest.basic.auth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
