@@ -24,8 +24,8 @@ export class BasicAuthenticationService {
       {headers}).pipe(
         map(
           data => {
-            sessionStorage.setItem(TOKEN, username);
-            sessionStorage.setItem(AUTHERIZED_USER, basicAuthHeaderString);
+            sessionStorage.setItem(TOKEN, basicAuthHeaderString);
+            sessionStorage.setItem(AUTHERIZED_USER, username);
             return data;
           }
         )
