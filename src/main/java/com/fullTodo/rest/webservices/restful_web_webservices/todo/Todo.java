@@ -1,5 +1,6 @@
 package com.fullTodo.rest.webservices.restful_web_webservices.todo;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -8,14 +9,14 @@ public class Todo {
     private long id;
     private String username;
     private String description;
-    private Date targetDate;
+    private LocalDate targetDate;
     private boolean isDone;
 
     protected Todo () {
 
     }
 
-    public Todo(long id, String username, String description, Date targetDate, boolean isDone) {
+    public Todo(long id, String username, String description, LocalDate targetDate, boolean isDone) {
         this.id = id;
         this.username = username;
         this.description = description;
@@ -47,11 +48,11 @@ public class Todo {
         this.description = description;
     }
 
-    public Date getTargetDate() {
+    public LocalDate getTargetDate() {
         return targetDate;
     }
 
-    public void setTargetDate(Date targetDate) {
+    public void setTargetDate(LocalDate targetDate) {
         this.targetDate = targetDate;
     }
 

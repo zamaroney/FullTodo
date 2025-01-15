@@ -38,8 +38,4 @@ public class JwtAuthenticationController {
         
         return ResponseEntity.ok(new JwtTokenResponse(token));
     }
-
-    // {
-    //    "token": "eyJraWQiOiJjMGUwNmJlZi00YzRiLTQ2ZjktYTI2Zi0wNjExNzhkYmY3ZjIiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiemFtYXJvbmV5IiwiZXhwIjoxNzM2ODkzNDMyLCJpYXQiOjE3MzY4ODgwMzIsInNjb3BlIjoiUk9MRV9VU0VSIn0.R9I2MbD9q0pGDikiE7btOmsMO_e_hYFgQ91uwClG9hTpqUsv80-4lSm53imVBD-SKJaxpOVQaap4NmrBz_YRXDXJnZpc1h60zoL1kLgLu7l1Ic8nRH26O00PoCDOim69tbkKuDtL2SAHLaFfPWl0ORfcwp6Gc0Xh9rnwiQHDw5rdX3KKrpH17uDaPNPS2-NwjP3O2XK8xQk9gVxsA50QTkK8qHkuDi3aMqsrrDd2rxpvz9MeicehexdvDtODQpa2PL3V8_6cn-FPk9AoPEGeYWS_Cyhgdkg6ve6eDniAkZTEqb6BkWMcZAt5Yw3CM3h2oi1zYPTnTZvxjiuY2GKIEQ"
-    //}
 }

@@ -2,8 +2,8 @@ package com.fullTodo.rest.webservices.restful_web_webservices.todo;
 
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -12,9 +12,9 @@ public class todoHardCodedService {
     private static int idCounter = 0;
 
     static {
-        todos.add(new Todo(++idCounter, "zamaroney", "Learn to Dance", new Date(), false));
-        todos.add(new Todo(++idCounter, "zamaroney", "Learn About Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "zamaroney", "Learn About Springboot in depth", new Date(), false));
+        todos.add(new Todo(++idCounter, "zamaroney", "Learn to Dance", LocalDate.now(), false));
+        todos.add(new Todo(++idCounter, "zamaroney", "Learn About Angular", LocalDate.now(), false));
+        todos.add(new Todo(++idCounter, "zamaroney", "Learn About Springboot in depth", LocalDate.now(), false));
     }
 
     public List<Todo> finddAll() {
