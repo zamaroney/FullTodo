@@ -11,11 +11,11 @@ public class todoHardCodedService {
     private static List<Todo> todos = new ArrayList<>();
     private static Long idCounter = 0L;
 
-    static {
-        todos.add(new Todo(++idCounter, "zamaroney", "Learn to Dance", LocalDate.now(), false));
-        todos.add(new Todo(++idCounter, "zamaroney", "Learn About Angular", LocalDate.now(), false));
-        todos.add(new Todo(++idCounter, "zamaroney", "Learn About Springboot in depth", LocalDate.now(), false));
-    }
+//    static {
+//        todos.add(new Todo(++idCounter, "zamaroney", "Learn to Dance", LocalDate.now(), false));
+//        todos.add(new Todo(++idCounter, "zamaroney", "Learn About Angular", LocalDate.now(), false));
+//        todos.add(new Todo(++idCounter, "zamaroney", "Learn About Springboot in depth", LocalDate.now(), false));
+//    }
 
     public List<Todo> finddAll() {
         return todos;

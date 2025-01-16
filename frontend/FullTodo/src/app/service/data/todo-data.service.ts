@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Todo} from '../../list-todos/list-todos.component';
-import {API_URL, TODO_JPA_API_URL} from '../../app.constants';
+import {TODO_JPA_API_URL} from '../../app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -13,25 +13,25 @@ export class TodoDataService {
     private http: HttpClient,
   ) { }
 
-  retrieveAllTodos(username:string) {
+  retrieveAllTodos(username: string | null) {
     return this.http.get<Todo[]>(`${TODO_JPA_API_URL}/users/${username}/todos`)
   }
 
-  retrieveTodos(username:string, id:number) {
+  retrieveTodos(username: string | null, id: number) {
     return this.http.get<Todo>(`${TODO_JPA_API_URL}/users/${username}/todos/${id}`)
   }
 
-  deleteTodo(username:string, id:number) {
-    return this.http.delete(`${API_URL}/users/${username}/todos/${id}`)
+  deleteTodo(username: string | null, id: number) {
+    return this.http.delete(`${TODO_JPA_API_URL}/users/${username}/todos/${id}`)
   }
 
-  updateTodos(username:string, id:number, todo:Todo) {
-    return this.http.put<Todo>(`${API_URL}/users/${username}/todos/${id}`,
+  updateTodos(username: string | null, id: number, todo: Todo) {
+    return this.http.put<Todo>(`${TODO_JPA_API_URL}/users/${username}/todos/${id}`,
       todo);
   }
 
-  createTodos(username:string, todo:Todo) {
-    return this.http.post<Todo>(`${API_URL}/users/${username}/todos`,
+  createTodos(username: string | null, todo: Todo) {
+    return this.http.post<Todo>(`${TODO_JPA_API_URL}/users/${username}/todos`,
       todo);
   }
 }

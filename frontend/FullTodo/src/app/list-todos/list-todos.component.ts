@@ -49,7 +49,7 @@ export class ListTodosComponent {
 
   deleteTodo(id:number) {
     console.log(`Delete Todo ${id}`);
-    this.todoService.deleteTodo('zamaroney', id).subscribe(
+    this.todoService.deleteTodo(sessionStorage.getItem(AUTHERIZED_USER), id).subscribe(
       response => {
         console.log(response);
         this.message = `Todo ${id} Deleted!`;
@@ -68,7 +68,7 @@ export class ListTodosComponent {
   }
 
   refreshTodos() {
-    this.todoService.retrieveAllTodos('zamaroney').subscribe(
+    this.todoService.retrieveAllTodos(sessionStorage.getItem(AUTHERIZED_USER)).subscribe(
       response => {
         console.log(response);
         this.todos = response;
@@ -80,3 +80,6 @@ export class ListTodosComponent {
     this.router.navigate(['todos',-1])
   }
 }
+
+export const AUTHERIZED_USER = 'authenticatedUser'
+

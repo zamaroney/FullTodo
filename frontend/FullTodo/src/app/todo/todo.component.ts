@@ -17,8 +17,8 @@ import {DatePipe, NgIf} from '@angular/common';
 })
 export class TodoComponent {
 
-  id!: number;
-  todo!:Todo
+  id: number = 0;
+  todo: Todo = new Todo(this.id, '', false, new Date());
 
   constructor(
     private todoService:TodoDataService,
@@ -31,28 +31,31 @@ export class TodoComponent {
     this.id = this.route.snapshot.params['id'];
     this.todo = new Todo(this.id, '',false,new Date())
     if(this.id!=-1) {
-      this.todoService.retrieveTodos('zamaroney', this.id).subscribe(
+      this.todoService.retrieveTodos(sessionStorage.getItem(AUTHERIZED_USER), this.id).subscribe(
         data => this.todo = data
       );
     }
   }
 
   saveTodo() {
-    if(this.id == -1) {
-      this.todoService.createTodos('zamaroney', this.todo).subscribe(
-        data => {
-          console.log(data);
-          this.router.navigate(['todos']);
-        }
-      )
-    }
-    else{
-      this.todoService.updateTodos('zamaroney', this.id, this.todo).subscribe(
-        data => {
-          console.log(data);
-          this.router.navigate(['todos']);
-        }
-      )
+    if (this.id == -1) { //=== ==
+      this.todoService.createTodos(sessionStorage.getItem(AUTHERIZED_USER), this.todo)
+        .subscribe(
+          data => {
+            console.log(data)
+            this.router.navigate(['todos'])
+          }
+        )
+    } else {
+      this.todoService.updateTodos(sessionStorage.getItem(AUTHERIZED_USER), this.id, this.todo)
+        .subscribe(
+          data => {
+            console.log(data)
+            this.router.navigate(['todos'])
+          }
+        )
     }
   }
 }
+
+export const AUTHERIZED_USER = 'authenticatedUser'
