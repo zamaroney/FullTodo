@@ -28,6 +28,8 @@ export class ListTodosComponent {
 
   message: string | undefined
 
+
+
   //   new Todo(1, 'learn to dance', false, new Date()),
   //   new Todo(2, 'Become Angular God', false, new Date()),
   //   new Todo(3, 'Visit Ireland', true, new Date()),
@@ -46,6 +48,16 @@ export class ListTodosComponent {
     private todoService:TodoDataService,
     private router: Router,
   ) { }
+
+  toggleStatus(todo:Todo) {
+    todo.done = !todo.done;
+    this.todoService.updateTodos(sessionStorage.getItem(AUTHERIZED_USER), todo.id, todo).subscribe(
+    response => {
+      console.log(response);
+      this.message = `Todo ${todo.id} Status Changed!`;
+      this.refreshTodos()
+    })
+  }
 
   deleteTodo(id:number) {
     console.log(`Delete Todo ${id}`);

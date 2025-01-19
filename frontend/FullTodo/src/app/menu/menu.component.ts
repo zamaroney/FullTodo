@@ -13,13 +13,13 @@ import {NgIf} from '@angular/common';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-  isUserLoggedIn: boolean = false;
+  // isUserLoggedIn: boolean = false;
 
   constructor(public hardcodedAuthenticationService: HardcodedAuthenticationService) {
 
   }
 
-  ngOnInit() {
-    //this.isUserLoggedIn = this.hardcodedAuthenticationService.isUserLoggedIn();
-  }
+  // ngOnInit() {
+  //   //this.isUserLoggedIn = this.hardcodedAuthenticationService.isUserLoggedIn();
+  // }
 }

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class HardcodedAuthenticationService {
 
-  constructor() { }
+  // constructor() { }
 
   authenticate(username:string, password:string) {
     // console.log('before ' + this.isUserLoggedIn())
@@ -20,7 +20,7 @@ export class HardcodedAuthenticationService {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('authenticatedUser');
+    const user:string | null = sessionStorage.getItem('authenticatedUser');
     return !(user === null);
   }
 

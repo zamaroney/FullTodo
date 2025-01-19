@@ -20,7 +20,8 @@
       <td>{{ todo.done }}</td>
       <td>
         <button (click)="updateTodo(todo.id)"  class="btn btn-warning me-1">update</button>
-        <button (click)="deleteTodo(todo.id)"  class="btn btn-danger">Delete</button>
+        <button (click)="deleteTodo(todo.id)"  class="btn btn-danger me-1">Delete</button>
+        <button (click)="toggleStatus(todo)"  class="btn btn-info">Toggle Done</button>
       </td>
     </tr>
     </tbody>

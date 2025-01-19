@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SpringSecurityConfigurationBasicAuth{
+public class SpringSecurityConfigurationBasicAuth {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
