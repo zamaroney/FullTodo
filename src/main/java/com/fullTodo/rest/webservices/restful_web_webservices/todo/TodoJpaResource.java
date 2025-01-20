@@ -15,9 +15,6 @@ import java.util.List;
 public class TodoJpaResource {
 
     @Autowired
-    private todoHardCodedService todoService;
-
-    @Autowired
     private TodoJpaRepository repository;
 
     @GetMapping("/jpa/users/{username}/todos")

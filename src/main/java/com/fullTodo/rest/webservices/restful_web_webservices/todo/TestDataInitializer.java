@@ -19,5 +19,6 @@ public class TestDataInitializer implements CommandLineRunner {
         todoRepository.save(new Todo(null, "zamaroney", "Finish project report", LocalDate.of(2025, 1, 20), false));
         todoRepository.save(new Todo(null, "zamaroney", "Buy groceries", LocalDate.of(2025, 1, 18), true));
         todoRepository.save(new Todo(null, "zamaroney", "Prepare presentation", LocalDate.of(2025, 1, 22), false));
+        todoRepository.save(new Todo(null, "admin", "Prepare presentation", LocalDate.of(2025, 1, 22), false));
     }
 }
