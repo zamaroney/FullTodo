@@ -13,7 +13,7 @@ export class BasicAuthenticationService {
   ) { }
 
   executeAuthenticationService(username:string, password:string) {
-    let basicAuthHeaderString:string =  'Basic ' + window.btoa(username + ':' + password);
+    const basicAuthHeaderString:string =  'Basic ' + window.btoa(username + ':' + password);
 
     const headers = new HttpHeaders({
       Authorization: basicAuthHeaderString
@@ -45,7 +45,7 @@ export class BasicAuthenticationService {
   }
 
   executeJWTAuthenticationService(username:string, password:string) {
-    return this.http.post<any>(
+    return this.http.post<AuthResponse>(
       `${API_URL}/authenticate`, {
         username,
         password
@@ -77,4 +77,8 @@ export const AUTHERIZED_USER = 'authenticatedUser'
 
 export class AuthenticationBean {
   constructor(public message: string) { }
+}
+
+export interface AuthResponse {
+  token: string;
 }

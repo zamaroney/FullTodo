@@ -13,11 +13,11 @@ export class HttpIntercepterBasicAuthService implements HttpInterceptor {
     private basicAuthService : BasicAuthenticationService
   ) { }
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>>{
     // const username = 'zamaroney'
     // const password = 'dummy'
-    let basicAuthHeaderString = this.basicAuthService.getAuthenticatedToken();
-    let username = this.basicAuthService.getAuthenticateduser();
+    const basicAuthHeaderString = this.basicAuthService.getAuthenticatedToken();
+    const username = this.basicAuthService.getAuthenticateduser();
 
     if (username && basicAuthHeaderString) {
       request = request.clone({

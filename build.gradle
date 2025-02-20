@@ -39,3 +39,9 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jar {
+	// disable generation of **--plain.jar
+	enabled = false
+	archiveFileName = bootJar.archiveFileName
+}
